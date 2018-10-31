@@ -1,3 +1,8 @@
+<?php
+$link1 = 'get_template_paths.php?template=doppio';
+$link2 = 'get_template_paths.php?template=vandeco';
+$link3 = 'get_template_paths.php?template=heavy';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +59,9 @@
               </div>
               <div class="card-content teal accent-2">
                 <span class="card-title activator grey-text text-darken-4">Doppio</span>
-                <p><a href="./templates/1/doppio.html">Build Here!</a></p>
+                <button onclick="location.href='<?php echo $link1;?>'" type="button">
+                BUILD
+                </button>
               </div>
               
         		</div>
@@ -64,11 +71,15 @@
           <div class="col s12 m4">
             <div class="card ">
                 <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="./templates/2/sc.jpg">
+                  <img class="activator" src="
+                                              ./templates/2/sc.jpg
+                                              ">
                 </div>
                 <div class="card-content teal accent-2">
                   <span class="card-title activator grey-text text-darken-4">Van Deco</span>
-                  <p><a href="./templates/2/vandeco.html">Build Here!</a></p>
+                  <button onclick="location.href='<?php echo $link2;?>'" type="button">
+                  BUILD
+                  </button>
                 </div>
                 
         			</div>
@@ -77,13 +88,16 @@
           <div class="col s12 m4">
             <div class="card ">
                <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="./templates/3/sc.jpg">
+                  <img class="activator" src="
+                                              ./templates/3/sc.jpg
+                                              ">
                </div>
                <div class="card-content teal accent-2">
                   <span class="card-title activator grey-text text-darken-4">Heavy</span>
-                  <p><a href="./templates/3/heavy.html">Build Here!</a></p>
-               </div>
-              
+                  <button onclick="location.href='<?php echo $link3;?>'" type="button">
+                  BUILD
+                  </button>
+               </div>        
         		</div>
           </div>
         </div>
