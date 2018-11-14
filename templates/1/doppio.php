@@ -1,11 +1,16 @@
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>Doppio</title>
+<title>Joe Bloggs - Curriculum Vitae</title>
 
 <meta name="viewport" content="width=device-width"/>
+<meta name="description" content="The Curriculum Vitae of Joe Bloggs."/>
 <meta charset="UTF-8"> 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 
 
 <link type="text/css" rel="stylesheet" href="style.css">
@@ -16,35 +21,34 @@
     	}
 </style>
 <script type="text/javascript">
-$(document).ready(function(e) {
-$("#submitbutton").click(function() {
-
-var ln = document.getElementById("top").innerHTML;
-
-$.ajax({
-        type: "POST",
-        url: "../../saveNewText.php",
-        data: {newText: ln}
-       })
-        .done( function( msg ) {alert( "Data Saved: " + msg );});
-
-});
-});     
+	function saveText(){
+	var xr = new XMLHttpRequest();
+	var url = "saveNewText.php";
+	var text = document.getElementbyId("top").innerHTML;
+	var vars = "newText="+text;
+	xr.open("POST",url,true);
+	xr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xr.send(vars);
+}
 </script>
  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="../../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
 </head>
 <body >
 	<nav role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo" style="font-size: 150%;">Résumé Builder</a>
       <ul class="right hide-on-med-and-down">
-        <li><a id="submitbutton">Save</a></li>
+        <li><a href="../../save.php">Save</a></li>
         <li><a href="#">Print</a></li>
 		<li><a href="../../index.html">Logout</a></li>
       </ul>
 
       <ul id="nav-mobile" class="sidenav teal accent-4">
-        <li><a href="#">Save</a></li>
+        <li><a href="#" onclick="saveText()">Save</a></li>
         <li><a href="#">Print</a></li>
 		<li><a href="#">Logout</a></li>
 	 </ul>
@@ -70,7 +74,7 @@ $.ajax({
 		</div>
 		<div class="clear"></div>
 	</div>
-		
+	
 	<div id="mainArea" class="quickFade delayFive">
 		<section>
 			<article>

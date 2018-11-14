@@ -1,7 +1,7 @@
 <?php
-$link1 = 'get_template_paths.php?template=doppio';
-$link2 = 'get_template_paths.php?template=vandeco';
-$link3 = 'get_template_paths.php?template=heavy';
+$link1 = 'redirect.php?template=doppio';
+$link2 = 'redirect.php?template=vandeco';
+$link3 = 'redirect.php?template=heavy';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,9 +88,7 @@ $link3 = 'get_template_paths.php?template=heavy';
           <div class="col s12 m4">
             <div class="card ">
                <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="
-                                              ./templates/3/sc.jpg
-                                              ">
+                  <img class="activator" src="./templates/3/sc.JPG">
                </div>
                <div class="card-content teal accent-2">
                   <span class="card-title activator grey-text text-darken-4">Heavy</span>

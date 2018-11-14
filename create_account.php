@@ -16,11 +16,11 @@ ini_set('display_errors', 1);
     $dob = $_POST['dob'];
     $password = $_POST['password'];
 
-    $query  = 'SELECT max(user_id) FROM `user_details`';
+    $query  = 'SELECT max(user_id) AS user_count FROM `user_details`;';
     $result = $conn->query($query);
-    if(mysqli_num_rows($result) == 0) {
+    if(mysqli_num_rows($result) != 0) {
       $row = mysqli_fetch_array($result);
-      $maxID = $row["max(user_id)"];
+      $maxID = $row["user_count"];
       $newID = $maxID + 1;
     }
     else 

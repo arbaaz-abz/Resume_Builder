@@ -1,6 +1,7 @@
 <?php
 $result="";
 ini_set('display_errors', 1);
+session_start();
   if($_SERVER["REQUEST_METHOD"] == "POST") {
     $servername = "localhost";
     $username = 'root';
@@ -11,10 +12,13 @@ ini_set('display_errors', 1);
     //Create Local Variables
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $query = "SELECT * FROM login WHERE username = '$username' AND password = '$password' ";
+    $_SESSION["loggedin"] = $username;
+    $query = "SELECT user_id FROM login WHERE username = '$username' AND password = '$password' ";
     $result = $conn->query($query);
     $rows = mysqli_num_rows($result);
     if ($rows == 1) {	
+          $row = mysqli_fetch_array($result);
+          $_SESSION['u_id'] = $row['user_id'];
           header("location: home.php");
     } 
     else {

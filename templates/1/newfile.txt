@@ -1,63 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Doppio</title>
 
-<meta name="viewport" content="width=device-width"/>
-<meta charset="UTF-8"> 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-
-<link type="text/css" rel="stylesheet" href="style.css">
-<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
-<style type="text/css">
-	nav {
-          background-image: linear-gradient(to right, #00bfa5 , #18ffff);
-    	}
-</style>
-<script type="text/javascript">
-$(document).ready(function(e) {
-$("#submitbutton").click(function() {
-
-var ln = document.getElementById("top").innerHTML;
-
-$.ajax({
-        type: "POST",
-        url: "../../saveNewText.php",
-        data: {newText: ln}
-       })
-        .done( function( msg ) {alert( "Data Saved: " + msg );});
-
-});
-});     
-</script>
- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="../../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-</head>
-<body >
-	<nav role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo" style="font-size: 150%;">Résumé Builder</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a id="submitbutton">Save</a></li>
-        <li><a href="#">Print</a></li>
-		<li><a href="../../index.html">Logout</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="sidenav teal accent-4">
-        <li><a href="#">Save</a></li>
-        <li><a href="#">Print</a></li>
-		<li><a href="#">Logout</a></li>
-	 </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
-<div id="top" contenteditable="true">
 <div id="cv" class="instaFade">
 	<div class="mainDetails">
 		
 		
 		<div id="name">
-			<h1 class="quickFade delayTwo">Joe Bloggs</h1>
+			<h1 class="quickFade delayTwo">Joe ANkush</h1>
 			<h2 class="quickFade delayThree">Job Title</h2>
 		</div>
 		
@@ -169,6 +116,3 @@ $.ajax({
 	</script>
   <script src="../../js/materialize.js"></script>
   <script src="../../js/init.js"></script>
-</div>
-</body>
-</html>

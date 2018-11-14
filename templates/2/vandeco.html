@@ -33,13 +33,31 @@
         dd { width: 600px; float: right; }
         dd.clear { float: none; margin: 0; height: 15px; }
      </style>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+     <script type="text/javascript">
+$(document).ready(function(e) {
+$("#submitbutton").click(function() {
+
+var ln = document.getElementById("page-wrap").innerHTML;
+
+$.ajax({
+        type: "POST",
+        url: "../../saveNewText.php",
+        data: {newText: ln}
+       })
+        .done( function( msg ) {alert( "Data Saved: " + msg );});
+
+});
+});     
+</script>
 </head>
 
-<body contenteditable="True">
+<body>
     <nav role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo" style="font-size: 150%;">Résumé Builder</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Save</a></li>
+        <li><a id="submitbutton">Save</a></li>
         <li><a href="#">Print</a></li>
         <li><a href="#">Logout</a></li>
       </ul>
@@ -52,7 +70,7 @@
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
-    <div id="page-wrap">
+    <div id="page-wrap" contenteditable="true">
     
         <div id="contact-info" class="vcard">
         

@@ -1,3 +1,21 @@
+<?php
+    session_start();
+    $servername = "localhost";
+    $username = 'root';
+    $password = 'root123';
+    $db = 'resume_builder';
+    $conn = new mysqli($servername, $username, $password,$db);
+    $user_id = $_SESSION["u_id"];
+    $query = "SELECT * FROM `resumes` WHERE user_id=\"".$user_id."\""; 
+    echo $query;
+    $result = $conn->query($query);
+    print_r( mysqli_fetch_array($result));
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,24 +61,29 @@
      	
 <div class="container">
       <div class="section">
-        <!--   Icon Section   -->
-        <div class="row">
-          
+       <table>
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>Item Name</th>
+              <th>Item Price</th>
+          </tr>
+        </thead>
 
-          <div class="col s12 m4">
-            <div class="card ">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="./templates/1/sc.jpg">
-              </div>
-              <div class="card-content teal accent-2">
-                <span class="card-title activator grey-text text-darken-4">Doppio</span>
-                <p><a href="./templates/1/doppio.html">Build Here!</a></p>
-              </div>
-              
-        		</div>
-          </div>
-  
-        </div>
+        <tbody>
+          <?php
+          $x=1;
+       while($row =  mysqli_fetch_array($result)) {
+                  echo '<tr>
+                            <td bgcolor=" #5dade2 "scope="row">' . $x++ .'</td>
+                            <td bgcolor=" #5dade2 "scope="row">' . $row["resume_name"] .'</td>
+                            <td bgcolor=" #5dade2 "scope="row">' . $row["date"] .'</td>
+                            
+                                                    </tr>';
+            }
+            ?>
+        </tbody>
+      </table>
     </div>  
 	</div>
   <!--  Scripts-->
